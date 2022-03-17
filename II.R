@@ -55,7 +55,6 @@ cat("United Kingdom's new deaths - Minimum: ", ct3_minnewdeath, '\n')
   # 2/ Tinh tu phan vi
 Q_newcasecountry1<-quantile(c1_data$new_cases)
 cat("Andorra's new cases - Quartile: ", Q_newcasecountry1, '\n')
-Q_newcasecountry1
 Q_newdeathcountry1<-quantile(c1_data$new_deaths)
 cat("Andorra's new deaths - Quartile: ", Q_newdeathcountry1, '\n')
 

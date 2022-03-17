@@ -23,13 +23,11 @@ c1_data<-subset(data, location == national[1] & new_cases >= 0 & new_deaths >= 0
 c2_data<-subset(data, location == national[2] & new_cases >= 0 & new_deaths >= 0)
 c3_data<-subset(data, location == national[3] & new_cases >= 0 & new_deaths >= 0)
 
-# iv> NHOM CAU HOI LIEN QUAN DEN TRUC QUAN DU LIEU
+  # 1/ Bieu do tan so tich luy quoc gia cho cac chau luc
 
-  # 1/ Ve bieu do tan so tich luy quoc gia cho cac chau luc
+  # 2/ Bieu do tan so tuong doi quoc gia cho cac chau luc
 
-  # 2/ Ve bieu do tan so tuong doi quoc gia cho cac chau luc
-
-  # 3/ Ve bieu do the hien nhiem benh da bao cao cua cac quoc gia trong 7 ngay cuoi cung cua nam cuoi cung
+  # 3/ Bieu do the hien nhiem benh da bao cao cua cac quoc gia trong 7 ngay cuoi cung cua nam cuoi cung
 lastDay<-c()
 for (i in c(1:3)) {
   temp<-which(location == national[i])
@@ -49,7 +47,7 @@ for (i in c(1:3)) {
           col = color)
 }
 
-  # 4/ Ve bieu do the hien tu vong da bao cao cua cac quoc gia trong 7 ngay cuoi cung cua nam cuoi cung
+  # 4/ Bieu do the hien tu vong da bao cao cua cac quoc gia trong 7 ngay cuoi cung cua nam cuoi cung
 for (i in c(1:3)) {
   color<- rgb (208 / 255, 25 / 255, 31 / 255)
   if (i == 2) 
@@ -64,6 +62,66 @@ for (i in c(1:3)) {
           col = color)
 }
 
-  # 5/ Ve bieu do pho dat nuoc xuat hien outliers cho nhiem benh
+  # 5/ Bieu do pho dat nuoc xuat hien outliers cho nhiem benh
+Q_newcasecountry1<-quantile(c1_data$new_cases)
+Q_newcasecountry2<-quantile(c2_data$new_cases)
+Q_newcasecountry3<-quantile(c3_data$new_cases)
 
-  # 6/ Ve bieu do pho dat nuoc xuat hien outliers cho tu vong
+IQRnewcase1<-(Q_newcasecountry1[[4]] - Q_newcasecountry1[[2]])
+lower_newcase1<-(Q_newcasecountry1[[2]] - 1.5 * IQRnewcase1)
+upper_newcase1<-(Q_newcasecountry1[[4]] + 1.5 * IQRnewcase1)
+outlier_newcase1<-subset(c1_data, c1_data$new_cases < lower_newcase1 | c1_data$new_cases > upper_newcase1)
+count_outlier_newcase1<-sum(table(outlier_newcase1))
+
+IQRnewcase2<-(Q_newcasecountry2[[4]] - Q_newcasecountry2[[2]])
+lower_newcase2<-(Q_newcasecountry2[[2]] - 1.5 * IQRnewcase2)
+upper_newcase2<-(Q_newcasecountry2[[4]] + 1.5 * IQRnewcase2)
+outlier_newcase2<-subset(c2_data, c2_data$new_cases < lower_newcase2 | c2_data$new_cases > upper_newcase2)
+count_outlier_newcase2<-sum(table(outlier_newcase2))
+
+IQRnewcase3<-(Q_newcasecountry3[[4]] - Q_newcasecountry3[[2]])
+lower_newcase3<-(Q_newcasecountry3[[2]] - 1.5*IQRnewcase3)
+upper_newcase3<-(Q_newcasecountry3[[4]] + 1.5*IQRnewcase3)
+outlier_newcase3<-subset(c3_data, c3_data$new_cases < lower_newcase3 | c3_data$new_cases > upper_newcase3)
+count_outlier_newcase3<-sum(table(outlier_newcase3))
+
+outlier_newcase<-c(count_outlier_newcase1, count_outlier_newcase2, count_outlier_newcase3)
+
+barplot(outlier_newcase,
+        xlab = "Country",
+        ylab = "Outliers",
+        main = "Outliers for new cases",
+        names.arg = national,
+        col = rgb (67 / 255, 128 / 255, 13 / 255))
+
+  # 6/ Bieu do pho dat nuoc xuat hien outliers cho tu vong
+Q_newdeathcountry1<-quantile(c1_data$new_deaths)
+Q_newdeathcountry2<-quantile(c2_data$new_deaths)
+Q_newdeathcountry3<-quantile(c3_data$new_deaths)
+
+IQRnewdeath1<-(Q_newdeathcountry1[[4]] - Q_newdeathcountry1[[2]])
+lower_newdeath1<-(Q_newdeathcountry1[[2]] - 1.5*IQRnewdeath1)
+upper_newdeath1<-(Q_newdeathcountry1[[4]] + 1.5*IQRnewdeath1)
+outlier_newdeath1<-subset(c1_data, c1_data$new_deaths < lower_newdeath1 | c1_data$new_deaths > upper_newdeath1)
+count_outlier_newdeath1<-sum(table(outlier_newdeath1))
+
+IQRnewdeath2<-(Q_newdeathcountry2[[4]] - Q_newdeathcountry2[[2]])
+lower_newdeath2<-(Q_newdeathcountry2[[2]] - 1.5 * IQRnewdeath2)
+upper_newdeath2<-(Q_newdeathcountry2[[4]] + 1.5 * IQRnewdeath2)
+outlier_newdeath2<-subset(c2_data, c2_data$new_deaths < lower_newdeath2 | c2_data$new_deaths > upper_newdeath2)
+count_outlier_newdeath2<-sum(table(outlier_newdeath2))
+
+IQRnewdeath3<-(Q_newdeathcountry3[[4]]-Q_newdeathcountry3[[2]])
+lower_newdeath3<-(Q_newdeathcountry3[[2]] - 1.5 * IQRnewdeath3)
+upper_newdeath3<-(Q_newdeathcountry3[[4]] + 1.5 * IQRnewdeath3)
+outlier_newdeath3<-subset(c3_data, c3_data$new_deaths < lower_newdeath3 | c3_data$new_deaths > upper_newdeath3)
+count_outlier_newdeath3<-sum(table(outlier_newdeath3))
+
+outlier_newdeath<-c(count_outlier_newdeath1, count_outlier_newdeath2, count_outlier_newdeath3)
+
+barplot(outlier_newdeath,
+        xlab = "Country",
+        ylab = "Outliers",
+        main = "Outliers fow new deaths",
+        names.arg = national,
+        col = rgb (67 / 255, 128 / 255, 13 / 255))
