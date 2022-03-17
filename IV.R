@@ -47,9 +47,9 @@ breaks<-seq(10, 50, by = 10)
 plot(breaks, cumfreq,
      pch = 19,
      col = "red",
-     main = "Plot",
-     xlab = "Contries",
-     ylab = "Continents")
+     main = "Country Cumulative Frequency Plot for Continents",
+     xlab = "Number of Contries",
+     ylab = "Number of Continents")
 lines(breaks, cumfreq, col = "red")
 
   # 2/ Bieu do tan so tuong doi quoc gia cho cac chau luc
@@ -58,7 +58,7 @@ histogram(num_countries,
           col = rgb (67 / 255, 128 / 255, 13 / 255),
           main = "Relative Frequency Histogram",
           xlab = "Number of Countries",
-          ylab = "Percent of Total")
+          ylab = "Percent of Total (%)")
 
   # 3/ Bieu do the hien nhiem benh da bao cao cua cac quoc gia trong 7 ngay cuoi cung cua nam cuoi cung
 lastDay<-c()
@@ -125,7 +125,7 @@ barplot(outlier_newcase,
         ylab = "Outliers",
         main = "Outliers for new cases",
         names.arg = national,
-        col = rgb (67 / 255, 128 / 255, 13 / 255))
+        col = rgb (19 / 255, 42 / 255, 117 / 255))
 
   # 6/ Bieu do pho dat nuoc xuat hien outliers cho tu vong
 Q_newdeathcountry1<-quantile(c1_data$new_deaths)
@@ -157,4 +157,4 @@ barplot(outlier_newdeath,
         ylab = "Outliers",
         main = "Outliers fow new deaths",
         names.arg = national,
-        col = rgb (67 / 255, 128 / 255, 13 / 255))
+        col = rgb (19 / 255, 42 / 255, 117 / 255))

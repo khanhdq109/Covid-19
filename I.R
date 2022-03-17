@@ -22,5 +22,3 @@ national<-c("Andorra", "Slovenia", "United Kingdom")
 c1_data<-subset(data, location == national[1] & new_cases >= 0 & new_deaths >= 0)
 c2_data<-subset(data, location == national[2] & new_cases >= 0 & new_deaths >= 0)
 c3_data<-subset(data, location == national[3] & new_cases >= 0 & new_deaths >= 0)
-
-# i> NHOM CAU HOI LIEN QUAN DEN TONG QUAT DU LIEU

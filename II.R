@@ -23,7 +23,6 @@ c1_data<-subset(data, location == national[1] & new_cases >= 0 & new_deaths >= 0
 c2_data<-subset(data, location == national[2] & new_cases >= 0 & new_deaths >= 0)
 c3_data<-subset(data, location == national[3] & new_cases >= 0 & new_deaths >= 0)
 
-# ii> NHOM CAU HOI LIEN QUAN DEN MO TA THONG KE CO BAN DU LIEU
   # 1/ Gia tri lon nhat nho nhat
 ct1_maxnewcase<-max(c1_data$new_cases, na.rm = T)
 cat("Andorra's new cases - Maximum: ", ct1_maxnewcase, '\n')
