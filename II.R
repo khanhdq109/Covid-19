@@ -172,5 +172,6 @@ datatable_newdeath
 
   # 7/ Ve boxplot
 data_3country<-rbind(c1_data,c2_data,c3_data)
-boxplot(data_3country$new_cases~data_3country$location)
-boxplot(data_3country$new_deaths~data_3country$location)
+boxplot(data_3country$new_cases~data_3country$location,
+        xlab = "Countries",
+        ylab = 'New cases')
