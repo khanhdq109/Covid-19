@@ -52,19 +52,19 @@ ct3_minnewdeath<-min(c3_data$new_deaths, na.rm = T)
 cat("United Kingdom's new deaths - Minimum: ", ct3_minnewdeath, '\n')
 
   # 2/ Tinh tu phan vi
-Q_newcasecountry1<-quantile(c1_data$new_cases)
+Q_newcasecountry1<-quantile(c1_data$new_cases, prob = c(.25, .5, .75))
 cat("Andorra's new cases - Quartile: ", Q_newcasecountry1, '\n')
-Q_newdeathcountry1<-quantile(c1_data$new_deaths)
+Q_newdeathcountry1<-quantile(c1_data$new_deaths, prob = c(.25, .5, .75))
 cat("Andorra's new deaths - Quartile: ", Q_newdeathcountry1, '\n')
 
-Q_newcasecountry2<-quantile(c2_data$new_cases)
+Q_newcasecountry2<-quantile(c2_data$new_cases, prob = c(.25, .5, .75))
 cat("Slovenia's new cases - Quartile: ", Q_newcasecountry2, '\n')
-Q_newdeathcountry2<-quantile(c2_data$new_deaths)
+Q_newdeathcountry2<-quantile(c2_data$new_deaths, prob = c(.25, .5, .75))
 cat("Slovenia's new deaths - Quartile: ", Q_newdeathcountry2, '\n')
 
-Q_newcasecountry3<-quantile(c3_data$new_cases)
+Q_newcasecountry3<-quantile(c3_data$new_cases, prob = c(.25, .5, .75))
 cat("United Kingdom's new cases - Quartile: ", Q_newcasecountry3, '\n')
-Q_newdeathcountry3<-quantile(c3_data$new_deaths)
+Q_newdeathcountry3<-quantile(c3_data$new_deaths, prob = c(.25, .5, .75))
 cat("United Kingdom's new deaths - Quartile: ", Q_newdeathcountry3, '\n')
 
   # 3/ Tinh Average
@@ -100,6 +100,14 @@ cat("United Kingdom's new cases - Standard Deviation: ", m3_newcase, '\n')
 cat("United Kingdom's new deaths - Standard Deviation: ", m3_newdeath, '\n')
 
   # 5/ Tinh so outlier
+Q_newcasecountry1<-quantile(c1_data$new_cases)
+Q_newcasecountry2<-quantile(c2_data$new_cases)
+Q_newcasecountry3<-quantile(c3_data$new_cases)
+
+Q_newdeathcountry1<-quantile(c1_data$new_deaths)
+Q_newdeathcountry2<-quantile(c2_data$new_deaths)
+Q_newdeathcountry3<-quantile(c3_data$new_deaths)
+
 IQRnewcase1<-(Q_newcasecountry1[[4]] - Q_newcasecountry1[[2]])
 lower_newcase1<-(Q_newcasecountry1[[2]] - 1.5 * IQRnewcase1)
 upper_newcase1<-(Q_newcasecountry1[[4]] + 1.5 * IQRnewcase1)
