@@ -11,7 +11,7 @@ library("lubridate")
 library("lattice")
 
 # Set Data
-setwd("D:/Khanh/BK/HK212/Discrete Structures/CODE")      # path
+setwd("path")      # path
 data<-read_csv("owid-covid-data.csv")     # data
 iso_code<-data[["iso_code"]]              # iso_code
 continent<-data[["continent"]]            # continent
