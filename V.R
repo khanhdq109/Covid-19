@@ -43,7 +43,6 @@ color3<-rgb (36 / 255, 41 / 255, 172 / 255)
 # color5<-rgb (15 / 255, 142 / 255, 11 / 255)
 # color6<-rgb (36 / 255, 41 / 255, 172 / 255)
 color<-c(color1, color2, color3)
-# <iv>Nhom cau hoi lien quan den truc quan du lieu theo thoi gian la thang
 
 # Preprocessing
 data$date <- as.POSIXct(data$date, format="%m/%d/%Y")
@@ -127,7 +126,7 @@ sum3_2020_11c<-sum(c3_2020_11$new_cases, na.rm=TRUE)
 sum3_2020_12c<-sum(c3_2020_12$new_cases, na.rm=TRUE)
 sum3_2021_11c<-sum(c3_2021_11$new_cases, na.rm=TRUE)
 sum3_2021_12c<-sum(c3_2021_12$new_cases, na.rm=TRUE)
-#New_deaths
+# New_deaths
 # Andorra
 sum1_2020_4d<-sum(c1_2020_4$new_deaths, na.rm=TRUE)
 sum1_2020_7d<-sum(c1_2020_7$new_deaths, na.rm=TRUE)
@@ -209,34 +208,34 @@ ssumd1_2021<-c(sum1_2021_11d,sum1_2021_12d)
 ssumd2_2021<-c(sum2_2021_11d,sum2_2021_12d)
 ssumd3_2021<-c(sum3_2021_11d,sum3_2021_12d)
 
-# <1>Bieu do the hien thu thap du lieu nhiem benh cho tung thang
- #2020
+# <1> Bieu do the hien thu thap du lieu nhiem benh cho tung thang
+ # 2020
  barplot(sumc1_2020, xlab="Months", ylab="New_cases",main=ct[1], names.arg=s2020, col=color[1])
  barplot(sumc2_2020, xlab="Months", ylab="New_cases",main=ct[2], names.arg=s2020, col=color[2])
  barplot(sumc3_2020, xlab="Months", ylab="New_cases",main=ct[3], names.arg=s2020, col=color[3])
- #2021
+ # 2021
  barplot(sumc1_2021, xlab="Months", ylab="New_cases",main=ct[1], names.arg=s2021, col=color[1])
  barplot(sumc2_2021, xlab="Months", ylab="New_cases",main=ct[2], names.arg=s2021, col=color[2])
  barplot(sumc3_2021, xlab="Months", ylab="New_cases",main=ct[3], names.arg=s2021, col=color[3])
- #2022
+ # 2022
  barplot(sumc1_2022, xlab="Months", ylab="New_cases",main=ct[1], names.arg=s2022, col=color[1])
  barplot(sumc2_2022, xlab="Months", ylab="New_cases",main=ct[2], names.arg=s2022, col=color[2])
  barplot(sumc3_2022, xlab="Months", ylab="New_cases",main=ct[3], names.arg=s2022, col=color[3])
-# <2>Bieu do the hien thu thap du lieu tu vong cho tung thang
- #2020
+# <2> Bieu do the hien thu thap du lieu tu vong cho tung thang
+ # 2020
  barplot(sumd1_2020, xlab="Months", ylab="New_cases",main=ct[1], names.arg=s2020, col=color[1])
  barplot(sumd2_2020, xlab="Months", ylab="New_cases",main=ct[2], names.arg=s2020, col=color[2])
  barplot(sumd3_2020, xlab="Months", ylab="New_cases",main=ct[3], names.arg=s2020, col=color[3])
- #2021
+ # 2021
  barplot(sumd1_2021, xlab="Months", ylab="New_cases",main=ct[1], names.arg=s2021, col=color[1])
  barplot(sumd2_2021, xlab="Months", ylab="New_cases",main=ct[2], names.arg=s2021, col=color[2])
  barplot(sumd3_2021, xlab="Months", ylab="New_cases",main=ct[3], names.arg=s2021, col=color[3])
- #2022
+ # 2022
  barplot(sumd1_2022, xlab="Months", ylab="New_cases",main=ct[1], names.arg=s2022, col=color[1])
  barplot(sumd2_2022, xlab="Months", ylab="New_cases",main=ct[2], names.arg=s2022, col=color[2])
  barplot(sumd3_2022, xlab="Months", ylab="New_cases",main=ct[3], names.arg=s2022, col=color[3])
-# <3>Bieu do the hien thu thap du lieu tu vong va nhiem benh cho tung thang
- #2020
+# <3> Bieu do the hien thu thap du lieu tu vong va nhiem benh cho tung thang
+ # 2020
  barplot(c(rbind(sumc1_2020,sumd1_2020)), xlab="Months", ylab="New_cases/New_deaths",main=ct[1], names.arg=sss2020, col=c(color1,color2))
  legend("topright", 
         legend = c("New_cases", "New_deaths"), 
@@ -249,7 +248,7 @@ ssumd3_2021<-c(sum3_2021_11d,sum3_2021_12d)
  legend("topright", 
         legend = c("New_cases", "New_deaths"), 
         fill = c(color1,color2))
- #2021
+ # 2021
  barplot(c(rbind(sumc1_2021,sumd1_2021)), xlab="Months", ylab="New_cases/New_deaths",main=ct[1], names.arg=sss2021, col=c(color1,color2))
  legend("topright", 
         legend = c("New_cases", "New_deaths"), 
@@ -262,7 +261,7 @@ ssumd3_2021<-c(sum3_2021_11d,sum3_2021_12d)
  legend("topright", 
         legend = c("New_cases", "New_deaths"), 
         fill = c(color1,color2))
- #2022
+ # 2022
  barplot(c(rbind(sumc1_2022,sumd1_2022)), xlab="Months", ylab="New_cases/New_deaths",main=ct[1], names.arg=sss2022, col=c(color1,color2))
  legend("topright", 
         legend = c("New_cases", "New_deaths"), 
@@ -275,27 +274,27 @@ ssumd3_2021<-c(sum3_2021_11d,sum3_2021_12d)
  legend("topright", 
         legend = c("New_cases", "New_deaths"), 
         fill = c(color1,color2))
-#<4>Bieu do the hien thu thap du lieu nhiem benh gom 2 thang cuoi cua nam
- #2020
+#<4> Bieu do the hien thu thap du lieu nhiem benh gom 2 thang cuoi cua nam
+ # 2020
  barplot(ssumc1_2020, xlab="Months", ylab="New_cases",main=ct[1], names.arg=ss2020, col=color[1])
  barplot(ssumc2_2020, xlab="Months", ylab="New_cases",main=ct[2], names.arg=ss2020, col=color[2])
  barplot(ssumc3_2020, xlab="Months", ylab="New_cases",main=ct[3], names.arg=ss2020, col=color[3])
- #2021
+ # 2021
  barplot(ssumc1_2021, xlab="Months", ylab="New_cases",main=ct[1], names.arg=ss2021, col=color[1])
  barplot(ssumc2_2021, xlab="Months", ylab="New_cases",main=ct[2], names.arg=ss2021, col=color[2])
  barplot(ssumc3_2021, xlab="Months", ylab="New_cases",main=ct[3], names.arg=ss2021, col=color[3])
 
-# <5>Bieu do the hien thu thap du lieu tu vong gom 2 thang cuoi cua nam
- #2020
+# <5> Bieu do the hien thu thap du lieu tu vong gom 2 thang cuoi cua nam
+ # 2020
  barplot(ssumd1_2020, xlab="Months", ylab="New_cases",main=ct[1], names.arg=ss2020, col=color[1])
  barplot(ssumd2_2020, xlab="Months", ylab="New_cases",main=ct[2], names.arg=ss2020, col=color[2])
  barplot(ssumd3_2020, xlab="Months", ylab="New_cases",main=ct[3], names.arg=ss2020, col=color[3])
- #2021
+ # 2021
  barplot(ssumd1_2021, xlab="Months", ylab="New_cases",main=ct[1], names.arg=ss2021, col=color[1])
  barplot(ssumd2_2021, xlab="Months", ylab="New_cases",main=ct[2], names.arg=ss2021, col=color[2])
  barplot(ssumd3_2021, xlab="Months", ylab="New_cases",main=ct[3], names.arg=ss2021, col=color[3])
-# <6>Bieu do the hien thu thap du lieu tu vong va nhiem benh gom 2 thang cuoi cua nam 
- #2020
+# <6> Bieu do the hien thu thap du lieu tu vong va nhiem benh gom 2 thang cuoi cua nam 
+ # 2020
  barplot(c(rbind(ssumc1_2020,ssumd1_2020)), xlab="Months", ylab="New_cases/New_deaths",main=ct[1], names.arg=ssss2020, col=c(color1,color2))
  legend("topright", 
         legend = c("New_cases", "New_deaths"), 
@@ -308,7 +307,7 @@ ssumd3_2021<-c(sum3_2021_11d,sum3_2021_12d)
  legend("topright", 
         legend = c("New_cases", "New_deaths"), 
         fill = c(color1,color2))
- #2021
+ # 2021
  barplot(c(rbind(ssumc1_2021,ssumd1_2021)), xlab="Months", ylab="New_cases/New_deaths",main=ct[1], names.arg=ssss2021, col=c(color1,color2))
  legend("topright", 
         legend = c("New_cases", "New_deaths"), 
@@ -321,8 +320,8 @@ ssumd3_2021<-c(sum3_2021_11d,sum3_2021_12d)
  legend("topright", 
         legend = c("New_cases", "New_deaths"), 
         fill = c(color1,color2))
-# <7>Bieu do the hien thu thap du lieu nhiem benh tich luy cho tung thang
- #Andorra
+# <7> Bieu do the hien thu thap du lieu nhiem benh tich luy cho tung thang
+ # Andorra
  c1_61a<-subset(data, year(data$date)<2021 & month(data$date)<5&data$location==c1)
  c1_62a<-subset(data, year(data$date)<2021 & month(data$date)<8&data$location==c1)
  c1_63a<-subset(data, ((year(data$date)==2021 & month(data$date)<2)|year(data$date)==2020)&data$location==c1)
@@ -339,7 +338,7 @@ ssumd3_2021<-c(sum3_2021_11d,sum3_2021_12d)
  c1_6a=sum(c1_66a$new_cases,na.rm=TRUE)
  c1_7a=sum(c1_67a$new_cases,na.rm=TRUE)
  c1_8a=sum(c1_68a$new_cases,na.rm=TRUE)
- #Slovenia
+ # Slovenia
  c2_61a<-subset(data, year(data$date)<2021 & month(data$date)<5&data$location==c2)
  c2_62a<-subset(data, year(data$date)<2021 & month(data$date)<8&data$location==c2)
  c2_63a<-subset(data, ((year(data$date)==2021 & month(data$date)<2)|year(data$date)==2020)&data$location==c2)
@@ -356,7 +355,7 @@ ssumd3_2021<-c(sum3_2021_11d,sum3_2021_12d)
  c2_6a=sum(c2_66a$new_cases,na.rm=TRUE)
  c2_7a=sum(c2_67a$new_cases,na.rm=TRUE)
  c2_8a=sum(c2_68a$new_cases,na.rm=TRUE)
- #UK
+ # UK
  c3_61a<-subset(data, year(data$date)<2021 & month(data$date)<5&data$location==c3)
  c3_62a<-subset(data, year(data$date)<2021 & month(data$date)<8&data$location==c3)
  c3_63a<-subset(data, ((year(data$date)==2021 & month(data$date)<2)|year(data$date)==2020)&data$location==c3)
@@ -382,8 +381,8 @@ ssumd3_2021<-c(sum3_2021_11d,sum3_2021_12d)
  barplot(c27, xlab="Months", ylab="New_cases",main=ct[2], names.arg=send, col=color1)
  barplot(c37, xlab="Months", ylab="New_cases",main=ct[3], names.arg=send, col=color1)
 
-# <8>Bieu do the hien thu thap du lieu tu vong tichg luy cho tung thang
- #Andorra
+# <8> Bieu do the hien thu thap du lieu tu vong tichg luy cho tung thang
+ # Andorra
  c1_61b<-subset(data, year(data$date)<2021 & month(data$date)<5&data$location==c1)
  c1_62b<-subset(data, year(data$date)<2021 & month(data$date)<8&data$location==c1)
  c1_63b<-subset(data, ((year(data$date)==2021 & month(data$date)<2)|year(data$date)==2020)&data$location==c1)
@@ -400,7 +399,7 @@ ssumd3_2021<-c(sum3_2021_11d,sum3_2021_12d)
  c1_6b=sum(c1_66b$new_deaths,na.rm=TRUE)
  c1_7b=sum(c1_67b$new_deaths,na.rm=TRUE)
  c1_8b=sum(c1_68b$new_deaths,na.rm=TRUE)
- #Slovenia
+ # Slovenia
  c2_61b<-subset(data, year(data$date)<2021 & month(data$date)<5&data$location==c2)
  c2_62b<-subset(data, year(data$date)<2021 & month(data$date)<8&data$location==c2)
  c2_63b<-subset(data, ((year(data$date)==2021 & month(data$date)<2)|year(data$date)==2020)&data$location==c2)
@@ -417,7 +416,7 @@ ssumd3_2021<-c(sum3_2021_11d,sum3_2021_12d)
  c2_6b=sum(c2_66b$new_deaths,na.rm=TRUE)
  c2_7b=sum(c2_67b$new_deaths,na.rm=TRUE)
  c2_8b=sum(c2_68b$new_deaths,na.rm=TRUE)
- #UK
+ # UK
  c3_61b<-subset(data, year(data$date)<2021 & month(data$date)<5&data$location==c3)
  c3_62b<-subset(data, year(data$date)<2021 & month(data$date)<8&data$location==c3)
  c3_63b<-subset(data, ((year(data$date)==2021 & month(data$date)<2)|year(data$date)==2020)&data$location==c3)
