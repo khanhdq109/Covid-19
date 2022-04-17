@@ -7,6 +7,7 @@ library("csvread")
 library("readr")
 library("rlist")
 library("lubridate")
+
 # Set data
 setwd("C:/Users/tminh/Desktop/BTL CTRR")
 data<-read_csv("owid-covid-data.csv")     # data
@@ -85,8 +86,8 @@ c3_2020_11<-subset(data,year(data$date)==2020&month(data$date)==11&data$location
 c3_2020_12<-subset(data,year(data$date)==2020&month(data$date)==12&data$location==c3)
 c3_2021_11<-subset(data,year(data$date)==2021&month(data$date)==11&data$location==c3)
 c3_2021_12<-subset(data,year(data$date)==2021&month(data$date)==12&data$location==c3)
-# Evaluate sum
-# New_cases
+# Evaluate sum--------------------------------------------------------------------------------------------------------
+# New_cases----------------------------------------------------------------------------------------------------
 # Andorra
 sum1_2020_4c<-sum(c1_2020_4$new_cases, na.rm=TRUE)
 sum1_2020_7c<-sum(c1_2020_7$new_cases, na.rm=TRUE)
@@ -126,6 +127,7 @@ sum3_2020_11c<-sum(c3_2020_11$new_cases, na.rm=TRUE)
 sum3_2020_12c<-sum(c3_2020_12$new_cases, na.rm=TRUE)
 sum3_2021_11c<-sum(c3_2021_11$new_cases, na.rm=TRUE)
 sum3_2021_12c<-sum(c3_2021_12$new_cases, na.rm=TRUE)
+
 # New_deaths
 # Andorra
 sum1_2020_4d<-sum(c1_2020_4$new_deaths, na.rm=TRUE)
@@ -221,6 +223,7 @@ ssumd3_2021<-c(sum3_2021_11d,sum3_2021_12d)
  barplot(sumc1_2022, xlab="Months", ylab="New_cases",main=ct[1], names.arg=s2022, col=color[1])
  barplot(sumc2_2022, xlab="Months", ylab="New_cases",main=ct[2], names.arg=s2022, col=color[2])
  barplot(sumc3_2022, xlab="Months", ylab="New_cases",main=ct[3], names.arg=s2022, col=color[3])
+
 # <2> Bieu do the hien thu thap du lieu tu vong cho tung thang
  # 2020
  barplot(sumd1_2020, xlab="Months", ylab="New_cases",main=ct[1], names.arg=s2020, col=color[1])
@@ -234,6 +237,7 @@ ssumd3_2021<-c(sum3_2021_11d,sum3_2021_12d)
  barplot(sumd1_2022, xlab="Months", ylab="New_cases",main=ct[1], names.arg=s2022, col=color[1])
  barplot(sumd2_2022, xlab="Months", ylab="New_cases",main=ct[2], names.arg=s2022, col=color[2])
  barplot(sumd3_2022, xlab="Months", ylab="New_cases",main=ct[3], names.arg=s2022, col=color[3])
+
 # <3> Bieu do the hien thu thap du lieu tu vong va nhiem benh cho tung thang
  # 2020
  barplot(c(rbind(sumc1_2020,sumd1_2020)), xlab="Months", ylab="New_cases/New_deaths",main=ct[1], names.arg=sss2020, col=c(color1,color2))
@@ -274,7 +278,8 @@ ssumd3_2021<-c(sum3_2021_11d,sum3_2021_12d)
  legend("topright", 
         legend = c("New_cases", "New_deaths"), 
         fill = c(color1,color2))
-#<4> Bieu do the hien thu thap du lieu nhiem benh gom 2 thang cuoi cua nam
+
+# <4> Bieu do the hien thu thap du lieu nhiem benh gom 2 thang cuoi cua nam
  # 2020
  barplot(ssumc1_2020, xlab="Months", ylab="New_cases",main=ct[1], names.arg=ss2020, col=color[1])
  barplot(ssumc2_2020, xlab="Months", ylab="New_cases",main=ct[2], names.arg=ss2020, col=color[2])
@@ -289,10 +294,11 @@ ssumd3_2021<-c(sum3_2021_11d,sum3_2021_12d)
  barplot(ssumd1_2020, xlab="Months", ylab="New_cases",main=ct[1], names.arg=ss2020, col=color[1])
  barplot(ssumd2_2020, xlab="Months", ylab="New_cases",main=ct[2], names.arg=ss2020, col=color[2])
  barplot(ssumd3_2020, xlab="Months", ylab="New_cases",main=ct[3], names.arg=ss2020, col=color[3])
- # 2021
+ #2021
  barplot(ssumd1_2021, xlab="Months", ylab="New_cases",main=ct[1], names.arg=ss2021, col=color[1])
  barplot(ssumd2_2021, xlab="Months", ylab="New_cases",main=ct[2], names.arg=ss2021, col=color[2])
  barplot(ssumd3_2021, xlab="Months", ylab="New_cases",main=ct[3], names.arg=ss2021, col=color[3])
+
 # <6> Bieu do the hien thu thap du lieu tu vong va nhiem benh gom 2 thang cuoi cua nam 
  # 2020
  barplot(c(rbind(ssumc1_2020,ssumd1_2020)), xlab="Months", ylab="New_cases/New_deaths",main=ct[1], names.arg=ssss2020, col=c(color1,color2))
@@ -320,6 +326,7 @@ ssumd3_2021<-c(sum3_2021_11d,sum3_2021_12d)
  legend("topright", 
         legend = c("New_cases", "New_deaths"), 
         fill = c(color1,color2))
+
 # <7> Bieu do the hien thu thap du lieu nhiem benh tich luy cho tung thang
  # Andorra
  c1_61a<-subset(data, year(data$date)<2021 & month(data$date)<5&data$location==c1)
