@@ -24,26 +24,32 @@ ctr1<-subset(data, data$location==c1)
 ctr2<-subset(data, data$location==c2)
 ctr3<-subset(data, data$location==c3)
 
-# <iii>Nhom cau hoi lien quan den du lieu the hien thu thap du lieu (Voi moi quoc gia can tinh)
+# <iii> Nhom cau hoi lien quan den du lieu the hien thu thap du lieu (Voi moi quoc gia can tinh)
 
-# <1>Co bao nhieu ngay co so lan du lieu khong duoc bao cao moi
-  #Ca nhiem
+# <1> Co bao nhieu ngay co so lan du lieu khong duoc bao cao moi
+  # Ca nhiem
   c1_1a<-subset(data,data$location==c1&(data$new_cases==0|is.na(data$new_cases)))
   c2_1a<-subset(data,data$location==c2&(data$new_cases==0|is.na(data$new_cases)))
   c3_1a<-subset(data,data$location==c3&(data$new_cases==0|is.na(data$new_cases)))
+  print("So ngay co so ca nhiem khong duoc bao cao moi cua Andorra")
   print(length(c1_1a$new_cases))
+  print("So ngay co so ca nhiem khong duoc bao cao moi cua Slovenia")
   print(length(c2_1a$new_cases))
+  print("So ngay co so ca nhiem khong duoc bao cao moi cua UK")
   print(length(c3_1a$new_cases))
-  #Tu vong
+  # Tu vong
   c1_1b<-subset(data,data$location==c1&(data$new_deaths==0|is.na(data$new_deaths)))
   c2_1b<-subset(data,data$location==c2&(data$new_deaths==0|is.na(data$new_deaths)))
   c3_1b<-subset(data,data$location==c3&(data$new_deaths==0|is.na(data$new_deaths)))
+  print("So ngay co so ca tu vong khong duoc bao cao moi cua Andorra")
   print(length(c1_1b$new_deaths))
+  print("So ngay co so ca tu vong khong duoc bao cao moi cua Slovenia")
   print(length(c2_1b$new_deaths))
+  print("So ngay co so ca tu vong khong duoc bao cao moi cua UK")
   print(length(c3_1b$new_deaths))
-  
-# <2>Co bao nhieu ngay co so ca nhiem/tu vong la thap nhap duoc bao cao moi
-  #Ca nhiem
+
+# <2> Co bao nhieu ngay co so ca nhiem/tu vong la thap nhat duoc bao cao moi
+  # Ca nhiem
   c1_2a<-subset(data,data$location==c1&data$new_cases>0)
   c2_2a<-subset(data,data$location==c2&data$new_cases>0)
   c3_2a<-subset(data,data$location==c3&data$new_cases>0)
@@ -65,8 +71,11 @@ ctr3<-subset(data, data$location==c3)
     if (c3_2a$new_cases[i]==min(c3_2a$new_cases))
       count3=count3+1
   }
+  print("So ngay co so ca nhiem la thap nhat duoc bao cao moi cua Andorra")
   print(count1)
+  print("So ngay co so ca nhiem la thap nhat duoc bao cao moi cua Slovenia")
   print(count2)
+  print("So ngay co so ca nhiem la thap nhat duoc bao cao moi cua UK")
   print(count3)
   # Tu vong
   c1_2b<-subset(data,data$location==c1&data$new_deaths>0)
@@ -90,8 +99,11 @@ ctr3<-subset(data, data$location==c3)
     if (c3_2b$new_deaths[i]==min(c3_2b$new_deaths))
       count6=count4+1
   }
+  print("So ngay co so ca tu vong la thap nhat duoc bao cao moi cua Andorra")
   print(count4)
+  print("So ngay co so ca tu vong la thap nhat duoc bao cao moi cua Slovenia")
   print(count5)
+  print("So ngay co so ca tu vong la thap nhat duoc bao cao moi cua UK")
   print(count6)
   
 # <3> Co bao nhieu ngay co so ca nhiem/tu vong la cao nhap duoc bao cao moi
@@ -117,8 +129,11 @@ ctr3<-subset(data, data$location==c3)
     if (c3_2a$new_cases[i]==max(c3_2a$new_cases))
       count9=count9+1
   }
+  print("So ngay co so ca nhiem la cao nhat duoc bao cao moi cua Andorra")
   print(count7)
+  print("So ngay co so ca nhiem la cao nhat duoc bao cao moi cua Slovenia")
   print(count8)
+  print("So ngay co so ca nhiem la cao nhat duoc bao cao moi cua AUK")
   print(count9)
   # Tu vong
   # c1_2b<-subset(data,data$location==c1&data$new_deaths>0)
@@ -142,19 +157,26 @@ ctr3<-subset(data, data$location==c3)
     if (c3_2b$new_deaths[i]==max(c3_2b$new_deaths))
       count12=count12+1
   }
+  print("So ngay co so ca tu vong la cao nhat duoc bao cao moi cua Andorra")
   print(count10)
+  print("So ngay co so ca tu vong la cao nhat duoc bao cao moi cua Andorra")
   print(count11)
+  print("So ngay co so ca tu vong la cao nhat duoc bao cao moi cua Andorra")
   print(count12)
-# <4>The hien bang so lieu
-  Countries<-c( country1, country2, country3)
+
+# <4> The hien bang so lieu
+  Countries<-c( c1, c2, c3)
   Infections<-c(length(c1_1a$new_cases),length(c2_1a$new_cases),length(c3_1a$new_cases))
   Deaths<-c(length(c1_1b$new_deaths),length(c2_1b$new_deaths),length(c3_1b$new_deaths))
   datatable1<-data.frame(Countries,Infections,Deaths)
+  print("Bang so lieu")
   print(datatable1)
   Infectionss<-c(length(ctr1$new_cases)-length(c1_1a$new_cases),length(ctr2$new_cases)-length(c2_1a$new_cases),length(ctr3$new_cases)-length(c3_1a$new_cases))
   Deathss<-c(length(ctr1$new_cases)-length(c1_1b$new_deaths),length(ctr2$new_cases)-length(c2_1b$new_deaths),length(ctr3$new_cases)-length(c3_1b$new_deaths))
   datatable2<-data.frame(Countries,Infectionss,Deathss)
+  print("Bang so lieu")
   print(datatable2)
+
 # <5> Cho biet so ngay ngan nhat lien tiep ma khong co du lieu duoc bao cao
   c1_5a<-subset(data, data$location==c1)
   c2_5a<-subset(data, data$location==c2)
@@ -197,6 +219,10 @@ ctr3<-subset(data, data$location==c3)
       {
         a51=a51+1 
         count51=count51+1
+        if (a51==721)
+        {
+          break
+        }
       }
       if (count51<min51)
       {
@@ -209,8 +235,7 @@ ctr3<-subset(data, data$location==c3)
       count51=0
     }
   }   
-  print(min51)
-  ##Slovenia
+  ## Slovenia
   a52=0
   min52=10000
   max52=0
@@ -256,8 +281,8 @@ ctr3<-subset(data, data$location==c3)
       count52=0
     }
   }
-  print(min52)
-  ##UK
+  
+  ## UK
   a53=0
   min53=10000
   max53=0
@@ -303,7 +328,7 @@ ctr3<-subset(data, data$location==c3)
       count53=0
     }
   }
-  print(min53)
+  
   # Tu vong
   ## Andorra
   a54=0
@@ -339,6 +364,10 @@ ctr3<-subset(data, data$location==c3)
       {
         a54=a54+1 
         count54=count54+1
+        if (a54==721)
+        {
+          break
+        }
       }
       if (count54<min54)
       {
@@ -351,8 +380,8 @@ ctr3<-subset(data, data$location==c3)
       count54=0
     }
   }
-  print(min54)
-  ##Slovenia
+  
+  ## Slovenia
   a55=0
   min55=10000
   max55=0
@@ -398,7 +427,7 @@ ctr3<-subset(data, data$location==c3)
       count55=0
     }
   }
-  print(min55)
+  
   ## UK
   a56=0
   min56=10000
@@ -447,17 +476,36 @@ ctr3<-subset(data, data$location==c3)
     count56=0
     }
   }
+  print("So ngay ngan nhat lien tiep ma khong co so ca nhiem duoc bao cao cua Andorra")
+  print(min51)
+  print("So ngay ngan nhat lien tiep ma khong co so ca nhiem duoc bao cao cua Slovenia")
+  print(min52)
+  print("So ngay ngan nhat lien tiep ma khong co so ca nhiem duoc bao cao cua UK")
+  print(min53)
+  print("So ngay ngan nhat lien tiep ma khong co so ca tu vong duoc bao cao cua Andorra")
+  print(min54)
+  print("So ngay ngan nhat lien tiep ma khong co so ca tu vong duoc bao cao cua Slovenia")
+  print(min55)
+  print("So ngay ngan nhat lien tiep ma khong co so ca tu vong duoc bao cao cua UK")
   print(min56)
-# <6>Cho biet so ngay dai nhat lien tiep ma khong co du lieu duoc bao cao
+
+# <6> Cho biet so ngay dai nhat lien tiep ma khong co du lieu duoc bao cao
   # Ca nhiem
+  print("So ngay dai nhat lien tiep ma khong co so ca nhiem duoc bao cao cua Andorra")
   print(max51)
+  print("So ngay dai nhat lien tiep ma khong co so ca nhiem duoc bao cao cua Slovenia")
   print(max52)
+  print("So ngay dai nhat lien tiep ma khong co so ca nhiem duoc bao cao cua UK")
   print(max53)
-  # Tu vong 
+  #Tu vong
+  print("So ngay dai nhat lien tiep ma khong co so ca tu vong duoc bao cao cua Andorra")
   print(max54)
+  print("So ngay dai nhat lien tiep ma khong co so ca tu vong duoc bao cao cua Slovenia")
   print(max55)
+  print("So ngay dai nhat lien tiep ma khong co so ca tu vong duoc bao cao cua UK")
   print(max56)
-# <7>Cho biet so ngay ngan nhat lien tiep ma khong co nguoi nhiem benh moi
+
+# <7> Cho biet so ngay ngan nhat lien tiep ma khong co nguoi nhiem benh moi
   c1_6a<-subset(data, data$location==c1 & !is.na(data$new_cases))
   c2_6a<-subset(data, data$location==c2 & !is.na(data$new_cases))
   c3_6a<-subset(data, data$location==c3 & !is.na(data$new_cases))
@@ -495,6 +543,10 @@ ctr3<-subset(data, data$location==c3)
       {
         a61=a61+1 
         count61=count61+1
+        if (a61==721)
+        {
+          break
+        }
       }
       if (count61<min61)
       {
@@ -507,7 +559,7 @@ ctr3<-subset(data, data$location==c3)
       count61=0
     }
   }   
-  print(min61)
+  
   ## Slovenia
   a62=0
   min62=10000
@@ -554,7 +606,7 @@ ctr3<-subset(data, data$location==c3)
       count62=0
     }
   }
-  print(min62)
+  
   ## UK
   a63=0
   min63=10000
@@ -601,10 +653,19 @@ ctr3<-subset(data, data$location==c3)
       count63=0
     }
   }
+  print("So ngay ngan nhat lien tiep ma khong co nguoi nhiem benh moi o Andorra")
+  print(min61)
+  print("So ngay ngan nhat lien tiep ma khong co nguoi nhiem benh moi o Slovenia")
+  print(min62)
+  print("So ngay ngan nhat lien tiep ma khong co nguoi nhiem benh moi o UK")
   print(min63)
-# <8>Cho biet so ngay dai nhat lien tiep ma khong co nguoi nhiem benh moi
+
+# <8> Cho biet so ngay dai nhat lien tiep ma khong co nguoi nhiem benh moi
+  print("So ngay dai nhat lien tiep ma khong co nguoi nhiem benh moi o Andorra")
   print(max61)
+  print("So ngay dai nhat lien tiep ma khong co nguoi nhiem benh moi o Slovenia")
   print(max62)
+  print("So ngay dai nhat lien tiep ma khong co nguoi nhiem benh moi o UK")
   print(max63)
   
   
