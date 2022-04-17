@@ -126,6 +126,7 @@ freqfreq_data<-count(freq_data$freq)
 freqfreq_data<-subset(freqfreq_data,freq>1)
 freqfreq_data
 sentence="Cac quoc gia co cung so lan thu thap du lieu ="
+
 #16/Cac quoc gia cung so lan thu thap du lieu
 print("#16")
 for(i in freqfreq_data$x){
@@ -141,4 +142,3 @@ print("#17")
 isogreaterthan3<-subset(data,str_length(iso_code)>3)
 isogreaterthan3<-isogreaterthan3[,c(1,3)]
 print(unique(isogreaterthan3))
-
