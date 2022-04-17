@@ -86,8 +86,8 @@ c3_2020_11<-subset(data,year(data$date)==2020&month(data$date)==11&data$location
 c3_2020_12<-subset(data,year(data$date)==2020&month(data$date)==12&data$location==c3)
 c3_2021_11<-subset(data,year(data$date)==2021&month(data$date)==11&data$location==c3)
 c3_2021_12<-subset(data,year(data$date)==2021&month(data$date)==12&data$location==c3)
-# Evaluate sum--------------------------------------------------------------------------------------------------------
-# New_cases----------------------------------------------------------------------------------------------------
+# Evaluate sum
+# New_cases
 # Andorra
 sum1_2020_4c<-sum(c1_2020_4$new_cases, na.rm=TRUE)
 sum1_2020_7c<-sum(c1_2020_7$new_cases, na.rm=TRUE)
