@@ -17,15 +17,15 @@ date<-data[["date"]]                      # date
 new_cases<-data[["new_cases"]]            # new_cases
 new_deaths<-data[["new_deaths"]]          # new_deaths
 
-#Processing
+# VIII
+# Processing
 all_nation<-filter(data,!is.na(data$continent)&!is.na(data$new_cases)&!is.na(data$new_deaths)&data$new_cases>=0&data$new_deaths>=0,.preserve=FALSE)
 all_nation %>% arrange(mdy(all_nation$date))
-
 #Plotting
 #7 days plotting
 #New cases
 
-#1
+# 1
 all_length<-length(all_nation$date)
 all_nation_avr<-all_nation
 for (i in 1: all_length){
@@ -77,7 +77,7 @@ barplot(all_loc$new_cases[all_pos2022:length(all_loc$date)],
         names.arg=all_loc$date[all_pos2022:length(all_loc$date)],
         col="blue")
 
-#2
+# 2
 barplot(all_loc$new_deaths[1:all_pos2021-1],
         xlab="Days",
         ylab="New Deaths",
@@ -97,7 +97,7 @@ barplot(all_loc$new_deaths[all_pos2022:length(all_loc$date)],
         names.arg=all_loc$date[all_pos2022:length(all_loc$date)],
         col="blue")
 
-#3
+# 3
 all_loc2months<-subset(all_nation_avr,month(all_nation_avr$date)==11|month(all_nation_avr$date)==12)
 barplot(all_loc2months$new_cases[1:61],xlab="Days",ylab="New Cases",
         main="World new Cases in the last 2 months of 2020",
@@ -106,7 +106,7 @@ barplot(all_loc2months$new_cases[62:122],xlab="Days",ylab="New Cases",
         main="World new Cases in the last 2 months of 2021",
         names.arg=all_loc2months$date[62:122],col="blue")
 
-#4
+# 4
 barplot(all_loc2months$new_deaths[1:61],xlab="Days",ylab="New Cases",
         main="World new Deaths in the last 2 months of 2020",
         names.arg=all_loc2months$date[1:61],col="blue")
@@ -114,30 +114,25 @@ barplot(all_loc2months$new_deaths[62:122],xlab="Days",ylab="New Cases",
         main="World new Deaths in the last 2 months of 2021",
         names.arg=all_loc2months$date[62:122],col="blue")
 
-#5
+# 5
 all_nation_tichluy<-all_nation_avr
 for (i in 2:all_length){
   all_nation_tichluy$new_cases[i]<-all_nation_tichluy$new_cases[i]+all_nation_tichluy$new_cases[i-1]
   all_nation_tichluy$new_deaths[i]<-all_nation_tichluy$new_deaths[i]+all_nation_tichluy$new_deaths[i-1]
 }
-all_loc_tichluy<-subset(all_nation_tichluy,month(all_nation_tichluy$date)==1|month(all_nation_tichluy$date)==2|month(all_nation_tichluy$date)==4|month(all_nation_tichluy$date)==7)
+all_loc_tichluy<-subset(all_nation_tichluy,month(all_nation_tichluy$date)==11|month(all_nation_tichluy$date)==12)
 barplot(all_loc_tichluy$new_cases[1:61],xlab="Days",ylab="New Cases",
-        main="World new Cases cumulative relative frequency in 2020",
+        main="World new Cases cumulative relative frequency in the last 2 months 2020", 
         names.arg=all_loc_tichluy$date[1:61],col="blue")
-barplot(all_loc_tichluy$new_cases[62:181],xlab="Days",ylab="New Cases",
-        main="World new Cases cumulative relative frequency in 2021",
+barplot(all_loc_tichluy$new_cases[62:181],xlab="Days",ylab="New Cases", xlim=c(0,67),
+        main="World new Cases cumulative relative frequency in the last 2 months 2021",  
         names.arg=all_loc_tichluy$date[62:181],col="blue")
-barplot(all_loc_tichluy$new_cases[182:length(all_loc_tichluy$date)],xlab="Days",ylab="New Cases",xlim=c(0,54), ylim=c(0,200000),
-        main="World new Cases cumulative relative frequency in 2022",
-        names.arg=all_loc_tichluy$date[182:length(all_loc_tichluy$date)],col="blue")
 
-#6
+# 6
 barplot(all_loc_tichluy$new_deaths[1:61],xlab="Days",ylab="New Deaths",
-        main="World new Deaths cumulative relative frequency in 2020",
+        main="World new Deaths cumulative relative frequency in the last 2 months 2020",
         names.arg=all_loc_tichluy$date[1:61],col="blue")
-barplot(all_loc_tichluy$new_deaths[62:181],xlab="Days",ylab="New Deaths",
-        main="World new Deaths cumulative relative frequency in 2021",
+barplot(all_loc_tichluy$new_deaths[62:181],xlab="Days",ylab="New Deaths", xlim=c(0,67),
+        main="World new Deaths cumulative relative frequency in the last 2 months 2021",
         names.arg=all_loc_tichluy$date[62:181],col="blue")
-barplot(all_loc_tichluy$new_deaths[182:length(all_loc_tichluy$date)],xlab="Days",ylab="New Deaths",xlim=c(0,54), ylim=c(0,8000),
-        main="World new Deaths cumulative relative frequency in 2022",
-        names.arg=all_loc_tichluy$date[182:length(all_loc_tichluy$date)],col="blue")
+
